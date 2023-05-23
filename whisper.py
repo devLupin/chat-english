@@ -34,12 +34,14 @@ def preprocess_sentence(sentence:str, split_ratio:int=3):
   
   merged_li = []
   for i in range(0, rm_li_len - remain, split_ratio):
-    s = rm_space_li[i] + "\n " + rm_space_li[i+1] + "\n " + rm_space_li[i+2] + "\n "
-    merged_li.append(s)
+      s = ""
+      for j in range(i, i+split_ratio):
+        s = rm_space_li[j] + "\n"
+      merged_li.append(s)
   
   s = ""
   for i in range(rm_li_len - remain, rm_li_len):
-    s += rm_space_li[i] + "\n "
+    s += rm_space_li[i] + "\n"
   merged_li.append(s)
   
   return merged_li
