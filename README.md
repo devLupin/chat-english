@@ -48,14 +48,14 @@ streamlit run app.py
   - easier    : more easy sentence expression
   - typo      : correct typo
 
-<img src="https://user-images.githubusercontent.com/33558083/240260752-293bf1f0-3f21-485c-8007-528973cd0ab2.png" alt="Chat English example" width=500 href="none"></img>
+<img src="https://user-images.githubusercontent.com/33558083/240276739-7ae82fa0-26a6-4b16-a845-ef767868d192.png" alt="Chat English example" width=500 href="none"></img>
 
 - You can extract sentences from images, such as PDFs.
   - First, upload the image.
   - Second, you can extract sentences.
   - Third, copy and paste them into the message box
 
-<img src="https://user-images.githubusercontent.com/33558083/240270745-d8963d2d-88d2-41b4-ab9e-b5451d5f7da5.png" alt="OCR example" width=500 href="none"></img>
+<img src="https://user-images.githubusercontent.com/33558083/240276207-793c708a-4792-48b5-9301-0b0f4f30a262.png" alt="OCR example" width=500 href="none"></img>
 
 
 ## License
