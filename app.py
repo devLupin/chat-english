@@ -1,15 +1,19 @@
 import streamlit as st
 from streamlit_chat import message
-import requests
+import uuid
 from whisper import get_whisper
+from ocr import get_ocr
+import os
+import errno
 
 st.set_page_config(
-    page_title="Chat English - Demo",
+    page_title="Chat English",
     page_icon=":robot:"
 )
 
-st.header("Chat English - Demo")
-st.markdown("[Github](https://github.com/devLupin/chat-english)")
+st.header("Chat English")
+st.markdown("Lupin - [github](https://github.com/devLupin/chat-english)")
+st.markdown("\n")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -17,7 +21,15 @@ if 'generated' not in st.session_state:
 if 'past' not in st.session_state:
     st.session_state['past'] = []
 
+def remove(file):
+    try:
+        os.remove(file)
+    except OSError as e:
+        if e.errno != errno.ENOENT:
+            raise
+
 def get_text():
+    st.markdown("\n\n")
     input_text = st.text_input("Enter your scripts: ","", key="input")
     return input_text 
 
@@ -33,12 +45,33 @@ def get_result(text, opt):
 
 
 
-user_input = get_text()
-grammar_btn = st.button(label="grammar")
-naturally_btn = st.button(label="naturally")
-easier_btn = st.button(label="easier")
-typo_btn = st.button(label="typo")
+image_file = st.file_uploader("Upload image for OCR", type=["png","jpg","jpeg"])
+if image_file is not None:
+    name = uuid.uuid4()
+    f_name = "temp-" + str(name) + ".png"
+    
+    with open(f_name, "wb") as f:
+        f.write((image_file).getbuffer())
+    text = get_ocr(f_name)
+    remove(f_name)
+    
+    st.markdown("#### OCR text : ")
+    st.markdown(f"\n\n{text}")
 
+
+user_input = get_text()
+
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    grammar_btn = st.button(label="grammar")
+with col2:
+    naturally_btn = st.button(label="naturally")
+with col3:
+    easier_btn = st.button(label="easier")
+with col4:
+    typo_btn = st.button(label="typo")
+
+            
 if user_input != "" and grammar_btn:
     st.session_state.past.append(user_input)
     
