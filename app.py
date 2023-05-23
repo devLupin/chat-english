@@ -13,7 +13,12 @@ st.set_page_config(
 
 st.header("Chat English")
 st.markdown("Lupin - [github](https://github.com/devLupin/chat-english)")
-st.markdown("\n")
+st.markdown("")
+st.markdown("")
+st.markdown("A faster way to make perpect sentence in English.")
+st.markdown("[Usage](https://github.com/devLupin/chat-english#usage)")
+st.markdown("")
+st.markdown("")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
