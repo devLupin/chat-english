@@ -63,7 +63,7 @@ def text_completion(sentence:str, option:str):
   """
   
   if(option == 'correct'):
-    prompt = 'Correct grammar:\n\n' + sentence
+    prompt = 'Give me some corrections for these sentences:\n\n' + sentence
   elif(option == 'naturally'):
     prompt = 'More natural in spoken English:\n\n' + sentence
   elif(option == 'easier'):
@@ -79,7 +79,7 @@ def text_completion(sentence:str, option:str):
       model="text-davinci-003",
       prompt=prompt,
       temperature=0,
-      max_tokens=60,
+      max_tokens=len(sentence) * 4,
       top_p=1.0,
       frequency_penalty=0.0,
       presence_penalty=0.0
@@ -89,16 +89,13 @@ def text_completion(sentence:str, option:str):
   except openai.error.RateLimitError:
     print('[*] You exceeded your current quota')
     exit(0)
-
+  except openai.error.APIError:
+    print('[*] Bad gateway.')
+    exit(0)
+    
 def get_whisper(sentence:str, option:str):
-  split_sentences = preprocess_sentence(sentence)
-
-  output = ""
-  for s in split_sentences:
-    out = text_completion(s, option)
-    output += out["choices"][0]["text"] + " "
-
-  return output
+  out =  text_completion(sentence, option)
+  return out["choices"][0]["text"]
 
 
 if __name__ == '__main__':
@@ -133,3 +130,4 @@ Talk to you later. Bye.
 """
   out = get_whisper(sentence, "correct")
   print(out)
+  

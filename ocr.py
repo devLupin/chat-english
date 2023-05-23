@@ -74,11 +74,11 @@ def preprocess_text(text_info:str, split_ratio:int=2):
 
 def get_ocr(image_path):
     text_info = get_text_info(image_path)
-    splited = preprocess_text(text_info)
+    text = remove_space(text_info)
     
-    return splited
+    return text
     
 
 if __name__ == '__main__':
-    splited_text = get_ocr('a.JPG')
-    print(splited_text)
+    text = get_ocr('a.JPG')
+    print(text)
