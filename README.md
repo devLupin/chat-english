@@ -40,6 +40,9 @@ Run it open the app!
 streamlit run app.py
 ```
 
+- You can now view your Streamlit app in your browser.
+  - Local URL: http://localhost:8501
+
 ## Usage
 
 - You can improve the English sentences.
