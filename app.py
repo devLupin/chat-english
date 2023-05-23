@@ -11,11 +11,11 @@ st.set_page_config(
     page_icon=":robot:"
 )
 
-st.header("Chat English")
+st.header("Chat English 👀")
 st.markdown("Lupin - [github](https://github.com/devLupin/chat-english)")
 st.markdown("")
 st.markdown("")
-st.markdown("A faster way to make perpect sentence in English.")
+st.markdown("**A faster way to make perpect sentence in English.**")
 st.markdown("[Usage](https://github.com/devLupin/chat-english#usage)")
 st.markdown("")
 st.markdown("")
