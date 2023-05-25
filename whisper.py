@@ -65,11 +65,13 @@ def text_completion(sentence:str, option:str):
   if(option == 'correct'):
     prompt = 'Give me some corrections for these sentences:\n\n' + sentence
   elif(option == 'naturally'):
-    prompt = 'More natural in spoken English:\n\n' + sentence
+    prompt = """Can you make it more natural in spoken English?\n
+                You can use some fillers and modern words.\n\n""" + sentence
   elif(option == 'easier'):
-    prompt = 'Make it easier:\n\n' + sentence
+    prompt = 'Can you make it easier in spoken English?:\n\n' + sentence
   elif(option == 'typo'):
-    prompt = 'Correct typo:\n\n' + sentence
+    prompt = """Please let me know if there are any typos that need correcting. 
+                If not, don't respond.:\n\n""" + sentence
   else:
     print('[*] Unexpected option. in text_completion()')
     exit(0)

@@ -53,14 +53,14 @@ def get_result(text, opt):
 image_file = st.file_uploader("Upload image for OCR", type=["png","jpg","jpeg"])
 if image_file is not None:
     name = uuid.uuid4()
-    f_name = "temp-" + str(name) + ".png"
+    f_name = str(name) + ".png"
     
     with open(f_name, "wb") as f:
         f.write((image_file).getbuffer())
     text = get_ocr(f_name)
     remove(f_name)
     
-    st.markdown("#### OCR text : ")
+    st.markdown("#### OCR text :")
     st.markdown(f"\n\n{text}")
 
 
