@@ -30,7 +30,7 @@ def remove_space(text:str):
     correct = ""
     for text in text_li:
         if text[-1] == '-':
-            correct += text[:-1] + " "
+            correct += text[:-1]
         else:
             correct += text + " "
             
