@@ -14,7 +14,7 @@ A faster way to make perpect sentence in English.
   - Open a terminal and run:
 
   ```bash
-  $ env:GOOGLE_APPLICATION_CREDENTIALS="your dir/api-key.json"
+  $ env:GOOGLE_APPLICATION_CREDENTIALS="your dir/google-vision-api-key.json"
   $ env:OPENAI_API_KEY="your dir/OpenAI api-key.json"
   ```
 
