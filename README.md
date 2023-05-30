@@ -3,6 +3,9 @@
 
 A faster way to make perpect sentence in English.
 
+- [Demo video 1](https://drive.google.com/file/d/1t0Za1VaNZGckofdegP7JqmUlVvW_VRh6/view?usp=sharing)
+- [Demo video 2](https://drive.google.com/file/d/1fhvFzXlfMORsV5kicG33wMEI3q7YzJ9p/view?usp=sharing)
+
 ## Prerequisite
 <hr>
 
